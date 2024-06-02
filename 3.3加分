@@ -1,0 +1,22 @@
+def main():
+    scores = []
+    
+    while True:
+        score = int(input("請輸入學生成績（輸入-1結束）："))
+        if score == -1:
+            break
+        scores.append(score)
+    
+    if not scores:  
+        print("沒有輸入任何成績")
+        return
+    
+    total_students = len(scores)
+    passing_students = len([score for score in scores if score >= 60])
+    failing_students = total_students - passing_students
+    average_score = sum(scores) / total_students
+
+    print(f"全班人數：{total_students}")
+    print(f"及格人數：{passing_students}")
+    print(f"不及格人數：{failing_students}")
+    print(f"全班平均值：{average_score:.2f}")
